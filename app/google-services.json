@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "194373152867",
+    "firebase_url": "https://shop-6b8ac.firebaseio.com",
+    "project_id": "shop-6b8ac",
+    "storage_bucket": "shop-6b8ac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:194373152867:android:1502cb11e7f6560d2f4856",
+        "android_client_info": {
+          "package_name": "ncra.org.pk.shop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "194373152867-rel9go10dr7nne5dq662kis5dbr3o6sk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ncra.org.pk.shop",
+            "certificate_hash": "f5c50ed4b8a74a03e4ae0c021daa22d316392fdf"
+          }
+        },
+        {
+          "client_id": "194373152867-p7tthijvlv5k1l8fl4jotf6iepi953df.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAhTdXxpb2aUXyh0bHfNjpLVm1EbjIwpQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "194373152867-p7tthijvlv5k1l8fl4jotf6iepi953df.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

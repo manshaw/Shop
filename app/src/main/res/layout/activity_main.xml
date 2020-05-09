@@ -1,0 +1,676 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="Tobacco Brands"
+        android:textColor="#2c2c2c"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="10dp"
+        app:layout_constraintBottom_toTopOf="@id/pages"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header">
+
+        <TableRow
+            android:id="@+id/table_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/table_header_background"
+            android:gravity="center"
+            android:padding="5dp"
+            android:weightSum="12">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:gravity="center"
+                android:text="BRAND"
+                android:textColor="#fff"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="PACK"
+                android:textColor="#fff"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="OUTER"
+                android:textColor="#fff"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="SC(BOX)"
+                android:textColor="#fff"
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <ScrollView
+            android:id="@+id/table"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/table_background"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbarSize="5dp"
+            android:scrollbarThumbVertical="@color/colorPrimary"
+            android:scrollbars="vertical">
+
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:gravity="center">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:weightSum="12">
+
+                    <TextView
+                        android:id="@+id/b1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="6"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Morven Gold KSF 20HL"
+                        android:textColor="#000"
+                        android:textSize="14dp" />
+
+                    <EditText
+                        android:id="@+id/p1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:textColor="#000"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textSize="14dp" />
+
+                    <EditText
+                        android:id="@+id/o1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:textColor="#000"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textSize="14dp" />
+
+                    <EditText
+                        android:id="@+id/sc1"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:textColor="#000"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textSize="14dp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:weightSum="12">
+
+                    <TextView
+                        android:id="@+id/b2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="6"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Diplomat KSF 20HL"
+                        android:textColor="#000"
+                        android:textSize="14dp" />
+
+                    <EditText
+                        android:id="@+id/p2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:textColor="#000"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textSize="14dp" />
+
+                    <EditText
+                        android:id="@+id/o2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:textColor="#000"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textSize="14dp" />
+
+                    <EditText
+                        android:id="@+id/sc2"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:textColor="#000"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textSize="14dp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:weightSum="12">
+
+                    <TextView
+                        android:id="@+id/b3"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="6"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Red &amp; White KSF  20HL"
+                        android:textColor="#000"
+                        android:textSize="14dp" />
+
+                    <EditText
+                        android:id="@+id/p3"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:textColor="#000"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textSize="14dp" />
+
+                    <EditText
+                        android:id="@+id/o3"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:textColor="#000"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textSize="14dp" />
+
+                    <EditText
+                        android:id="@+id/sc3"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:textColor="#000"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textSize="14dp" />
+
+                </TableRow>
+
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:weightSum="12">
+
+                    <TextView
+                        android:id="@+id/b5"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="6"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="K-2 Philip Morris"
+                        android:textColor="#000"
+                        android:textSize="14dp" />
+
+                    <EditText
+                        android:id="@+id/p5"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:textColor="#000"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textSize="14dp" />
+
+                    <EditText
+                        android:id="@+id/o5"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:textColor="#000"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textSize="14dp" />
+
+                    <EditText
+                        android:id="@+id/sc5"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:textColor="#000"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textSize="14dp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:weightSum="12">
+
+                    <TextView
+                        android:id="@+id/b6"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="6"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Marlboro Red 20"
+                        android:textColor="#000"
+                        android:textSize="14dp" />
+
+                    <EditText
+                        android:id="@+id/p6"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:textColor="#000"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textSize="14dp" />
+
+                    <EditText
+                        android:id="@+id/o6"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:textColor="#000"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textSize="14dp" />
+
+                    <EditText
+                        android:id="@+id/sc6"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:textColor="#000"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textSize="14dp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:weightSum="12">
+
+                    <TextView
+                        android:id="@+id/b7"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="6"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Marlboro Gold 20"
+                        android:textColor="#000"
+                        android:textSize="14dp" />
+
+                    <EditText
+                        android:id="@+id/p7"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:textColor="#000"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textSize="14dp" />
+
+                    <EditText
+                        android:id="@+id/o7"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:textColor="#000"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textSize="14dp" />
+
+                    <EditText
+                        android:id="@+id/sc7"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:textColor="#000"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textSize="14dp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:weightSum="12">
+
+                    <TextView
+                        android:id="@+id/b8"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="6"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="L &amp; M Red"
+                        android:textColor="#000"
+                        android:textSize="14dp" />
+
+                    <EditText
+                        android:id="@+id/p8"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:textColor="#000"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textSize="14dp" />
+
+                    <EditText
+                        android:id="@+id/o8"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:textColor="#000"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textSize="14dp" />
+
+                    <EditText
+                        android:id="@+id/sc8"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/border"
+                        android:gravity="center"
+                        android:hint="0"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:textColor="#000"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textSize="14dp" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/table_footer_background"
+                    android:gravity="center"
+                    android:weightSum="12">
+
+                    <TextView
+                        android:id="@+id/b17_total"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="6"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Total"
+                        android:textColor="#000"
+                        android:textSize="14dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/p17_total"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:inputType="number"
+                        android:padding="5dp"
+                        android:text="0"
+                        android:textColor="#000"
+                        android:textColorHint="@color/colorPrimary"
+                        android:textSize="14dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/o17_total"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="0"
+                        android:textColor="#000"
+                        android:textSize="14dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/sc17_total"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="0"
+                        android:textColor="#000"
+                        android:textSize="14dp"
+                        android:textStyle="bold" />
+
+                </TableRow>
+            </TableLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/pages"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginBottom="30dp"
+        android:background="@android:color/transparent"
+        android:backgroundTint="@android:color/transparent"
+        android:gravity="center"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardElevation="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnSend"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:backgroundTint="@android:color/transparent"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/tobacco"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/tobacco_active"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Tobacco"
+                android:textColor="#fff"
+                android:textSize="18dp" />
+
+            <TextView
+                android:id="@+id/lu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/lu_inactive"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="LU"
+                android:textColor="@color/colorPrimary"
+                android:textSize="18dp" />
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <Button
+        android:id="@+id/btnSend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
+        android:background="@drawable/table_header_background"
+        android:text="Send Order"
+        android:textColor="#fff"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
