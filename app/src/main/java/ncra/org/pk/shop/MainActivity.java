@@ -6,9 +6,13 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -39,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     DatabaseReference myRef;
     String phoneNumber, date;
     TextView tobacco, lu;
+    private AlertDialog alertDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +72,8 @@ public class MainActivity extends AppCompatActivity {
         sendOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                contactLessDialog(view);
+                orderSummaryDialog();
+//                contactLessDialog(view);
             }
         });
     }
@@ -95,6 +101,180 @@ public class MainActivity extends AppCompatActivity {
         setZero(p6, o6, sc6);
         setZero(p7, o7, sc7);
         setZero(p8, o8, sc8);
+    }
+
+    private void orderSummaryDialog() {
+        TableLayout table = new TableLayout(this);
+        table.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
+        table.setBackgroundColor(getColor(R.color.colorPrimary));
+        TextView heading = new TextView(this);
+        heading.setText("Order Summary");
+        heading.setTextSize(20);
+        table.addView(heading, new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT));
+        addHeader(table);
+        isNonZero(table, b1, p1, o1, sc1);
+        isNonZero(table, b2, p2, o2, sc2);
+        isNonZero(table, b3, p3, o3, sc3);
+        isNonZero(table, b5, p5, o5, sc5);
+        isNonZero(table, b6, p6, o6, sc6);
+        isNonZero(table, b7, p7, o7, sc7);
+        isNonZero(table, b8, p8, o8, sc8);
+        addTotal(table);
+
+        LinearLayout item = new LinearLayout(this);
+        item.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT, 2));
+        item.setGravity(Gravity.CENTER);
+        item.setOrientation(LinearLayout.HORIZONTAL);
+        Button cancel = new Button(this);
+        cancel.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1f));
+        cancel.setText("cancel");
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+            }
+        });
+        item.addView(cancel);
+        Button ok = new Button(this);
+        ok.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1f));
+        ok.setText("ok");
+        ok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                alertDialog.dismiss();
+                contactLessDialog(view);
+            }
+        });
+        item.addView(ok);
+        table.addView(item, new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT));
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setView(table);
+        alertDialogBuilder.setCancelable(false);
+        alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
+    public void isNonZero(TableLayout table, TextView brand, EditText pack, EditText outer, EditText box) {
+        if (!pack.getText().toString().isEmpty() || !box.getText().toString().isEmpty() || !outer.getText().toString().isEmpty()) {
+            addRow(table, brand.getText().toString(), pack.getText().toString(), outer.getText().toString(), box.getText().toString());
+        }
+    }
+
+    public void addRow(TableLayout table, String brand, String pack, String outer, String box) {
+        TableRow tr = new TableRow(this);
+        tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
+        tr.setBackground(getDrawable(R.drawable.cell));
+        LinearLayout item = new LinearLayout(this);
+        item.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT, 10));
+        item.setGravity(Gravity.CENTER);
+        item.setOrientation(LinearLayout.HORIZONTAL);
+        TextView tb_brand = new TextView(this);
+        tb_brand.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 5.5f));
+        tb_brand.setText(brand);
+        tb_brand.setGravity(Gravity.CENTER);
+        item.addView(tb_brand);
+
+        TextView tb_pack = new TextView(this);
+        tb_pack.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1.5f));
+        tb_pack.setText(pack);
+        tb_pack.setGravity(Gravity.CENTER);
+        item.addView(tb_pack);
+
+        TextView tb_outer = new TextView(this);
+        tb_outer.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1.5f));
+        tb_outer.setText(outer);
+        tb_outer.setGravity(Gravity.CENTER);
+        item.addView(tb_outer);
+
+        TextView tb_box = new TextView(this);
+        tb_box.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1.5f));
+        tb_box.setText(box);
+        tb_box.setGravity(Gravity.CENTER);
+        item.addView(tb_box);
+
+        tr.addView(item);
+        table.addView(tr, new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT));
+    }
+
+    public void addHeader(TableLayout table) {
+        TableRow tr = new TableRow(this);
+        tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
+        tr.setBackgroundColor(getColor(R.color.colorAccent));
+        LinearLayout item = new LinearLayout(this);
+        item.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT, 10));
+        item.setGravity(Gravity.CENTER);
+        item.setOrientation(LinearLayout.HORIZONTAL);
+        TextView tb_brand = new TextView(this);
+        tb_brand.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 5.5f));
+        tb_brand.setText("Brand Name");
+        tb_brand.setTextColor(getColor(R.color.colorPrimary));
+        tb_brand.setGravity(Gravity.CENTER);
+        item.addView(tb_brand);
+
+        TextView tb_pack = new TextView(this);
+        tb_pack.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1.5f));
+        tb_pack.setText("Pack");
+        tb_pack.setTextColor(getColor(R.color.colorPrimary));
+        tb_pack.setGravity(Gravity.CENTER);
+        item.addView(tb_pack);
+
+        TextView tb_outer = new TextView(this);
+        tb_outer.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1.5f));
+        tb_outer.setText("Outer");
+        tb_outer.setTextColor(getColor(R.color.colorPrimary));
+        tb_outer.setGravity(Gravity.CENTER);
+        item.addView(tb_outer);
+
+        TextView tb_box = new TextView(this);
+        tb_box.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1.5f));
+        tb_box.setText("Box");
+        tb_box.setTextColor(getColor(R.color.colorPrimary));
+        tb_box.setGravity(Gravity.CENTER);
+        item.addView(tb_box);
+
+        tr.addView(item);
+        table.addView(tr, new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT));
+    }
+
+
+    public void addTotal(TableLayout table) {
+        TableRow tr = new TableRow(this);
+        tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
+        tr.setBackgroundColor(getColor(R.color.colorAccent));
+        LinearLayout item = new LinearLayout(this);
+        item.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT, 10));
+        item.setGravity(Gravity.CENTER);
+        item.setOrientation(LinearLayout.HORIZONTAL);
+        TextView tb_brand = new TextView(this);
+        tb_brand.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 5.5f));
+        tb_brand.setText("Total");
+        tb_brand.setTextColor(getColor(R.color.colorPrimary));
+        tb_brand.setGravity(Gravity.CENTER);
+        item.addView(tb_brand);
+
+        TextView tb_pack = new TextView(this);
+        tb_pack.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1.5f));
+        tb_pack.setText(p17_total.getText().toString());
+        tb_pack.setTextColor(getColor(R.color.colorPrimary));
+        tb_pack.setGravity(Gravity.CENTER);
+        item.addView(tb_pack);
+
+        TextView tb_outer = new TextView(this);
+        tb_outer.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1.5f));
+        tb_outer.setText(o17_total.getText().toString());
+        tb_outer.setTextColor(getColor(R.color.colorPrimary));
+        tb_outer.setGravity(Gravity.CENTER);
+        item.addView(tb_outer);
+
+        TextView tb_box = new TextView(this);
+        tb_box.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1.5f));
+        tb_box.setText(sc17_total.getText().toString());
+        tb_box.setTextColor(getColor(R.color.colorPrimary));
+        tb_box.setGravity(Gravity.CENTER);
+        item.addView(tb_box);
+
+        tr.addView(item);
+        table.addView(tr, new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT));
     }
 
     public void contactLessDialog(View view) {
