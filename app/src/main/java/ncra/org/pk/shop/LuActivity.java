@@ -51,12 +51,12 @@ public class LuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_lu);
         prefs = getSharedPreferences(PACAKGE_NAME, MODE_PRIVATE);
         phoneNumber = prefs.getString("PhoneNumber", null);
-        database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("Users/" + phoneNumber + "/" + new Date() + "/");
-        initUi();
-        initFunc();
         Date d = Calendar.getInstance().getTime();
         date = new SimpleDateFormat("dd-MMM-yyyy").format(d);
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference("Users/" + phoneNumber + "/" + date + "/");
+        initUi();
+        initFunc();
         lu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -303,6 +303,22 @@ public class LuActivity extends AppCompatActivity {
         setListener(p6);
         setListener(p7);
         setListener(p8);
+        setListener(p9);
+        setListener(p10);
+        setListener(p11);
+        setListener(p12);
+        setListener(p13);
+        setListener(p14);
+        setListener(p15);
+        setListener(p16);
+        setListener(p17);
+        setListener(p18);
+        setListener(p19);
+        setListener(p20);
+        setListener(p21);
+        setListener(p22);
+        setListener(p23);
+        setListener(p24);
 
         setListener(o1);
         setListener(o2);
@@ -311,6 +327,22 @@ public class LuActivity extends AppCompatActivity {
         setListener(o6);
         setListener(o7);
         setListener(o8);
+        setListener(o9);
+        setListener(o10);
+        setListener(o11);
+        setListener(o12);
+        setListener(o13);
+        setListener(o14);
+        setListener(o15);
+        setListener(o16);
+        setListener(o17);
+        setListener(o18);
+        setListener(o19);
+        setListener(o20);
+        setListener(o21);
+        setListener(o22);
+        setListener(o23);
+        setListener(o24);
 
         setListener(sc1);
         setListener(sc2);
@@ -319,6 +351,22 @@ public class LuActivity extends AppCompatActivity {
         setListener(sc6);
         setListener(sc7);
         setListener(sc8);
+        setListener(sc9);
+        setListener(sc10);
+        setListener(sc11);
+        setListener(sc12);
+        setListener(sc13);
+        setListener(sc14);
+        setListener(sc15);
+        setListener(sc16);
+        setListener(sc17);
+        setListener(sc18);
+        setListener(sc19);
+        setListener(sc20);
+        setListener(sc21);
+        setListener(sc22);
+        setListener(sc23);
+        setListener(sc24);
     }
 
     public void setTotal() {

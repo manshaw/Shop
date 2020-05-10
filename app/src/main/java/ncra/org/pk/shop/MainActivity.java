@@ -51,12 +51,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         prefs = getSharedPreferences(PACAKGE_NAME, MODE_PRIVATE);
         phoneNumber = prefs.getString("PhoneNumber", null);
-        database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("Users/" + phoneNumber + "/" + new Date() + "/");
-        initUi();
-        initFunc();
         Date d = Calendar.getInstance().getTime();
         date = new SimpleDateFormat("dd-MMM-yyyy").format(d);
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference("Users/" + phoneNumber + "/" + date + "/");
+        initUi();
+        initFunc();
         lu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
